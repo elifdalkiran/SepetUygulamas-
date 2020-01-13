@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product} from './product';
 import {ProductService} from './product.service';
+import {CartService} from '../cart/service/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -14,7 +15,8 @@ export class ProductComponent implements OnInit {
   loading: boolean = true;
   addedProduct: string;
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ) {
     /*let a = this.productService.getProduct();
     a.subscribe(value => {
@@ -33,6 +35,8 @@ export class ProductComponent implements OnInit {
     });
   }
   addToCard(product: Product){
-    this.addedProduct = product.productName
+    this.addedProduct = product.productName;
+    this.cartService.addToCart(product);
+
   }
 }

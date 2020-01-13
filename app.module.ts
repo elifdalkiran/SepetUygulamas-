@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import {ProductService} from './product/product.service';
 import { CartComponent } from './cart/cart.component';
+import { CartService} from './cart/service/cart.service';
+import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,8 @@ import { CartComponent } from './cart/cart.component';
     {
       provide: 'apiUrl',
       useValue: 'http://northwindapi.azurewebsites.net/api'
-    }
+    },
+    CartService
     ],
   bootstrap: [AppComponent]
 })
